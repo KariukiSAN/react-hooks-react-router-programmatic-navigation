@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate } from "React-router-dom";
 
 const linkStyles = {
   width: "100px",
@@ -11,22 +11,21 @@ const linkStyles = {
 };
 
 function Navbar({ setIsLoggedIn }) {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function handleLogout() {
     setIsLoggedIn(false);
-    history.push("/login");
+    navigate("/login");
   }
 
   return (
     <div>
       <NavLink
         to="/"
-        /* set exact so it knows to only set activeStyle when route is deeply equal to link */
+        
         exact
-        /* add styling to Navlink */
+      
         style={linkStyles}
-        /* add prop for activeStyle */
         activeStyle={{
           background: "darkblue",
         }}

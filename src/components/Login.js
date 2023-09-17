@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "React-router-dom";
 
 function Login({ setIsLoggedIn }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -20,8 +20,7 @@ function Login({ setIsLoggedIn }) {
 
     setIsLoggedIn(true);
 
-    // after logging the user in, redirect to the home page!
-    history.push("/");
+    navigate("/");
   }
 
   return (
